@@ -110,6 +110,7 @@ ENV/
 # Gradle:
 .idea/gradle.xml
 .idea/libraries
+.idea/vcs.xml
 
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
@@ -136,3 +137,7 @@ fabric.properties
 
 Supprimerait .gitignore
 Supprimerait .idea/
+Supprimerait .idea/Trees.iml
+Supprimerait .idea/inspectionProfiles/
+Supprimerait .idea/misc.xml
+Supprimerait .idea/modules.xml
