@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+
 class BinaryTree:
     """
     Builds a binary tree contening the given data
@@ -37,6 +39,8 @@ class BinaryTree:
         :param new_left: set a new right child
         :return:
         """
+        assert isinstance(new_left, BinaryTree) or None
+
         if self.__left is not None:
             self.__left.set_father(None)
         self.__left = new_left
@@ -48,14 +52,17 @@ class BinaryTree:
         Returns the right child. Can be None if no child.
         :return: a tree, the right child or None if its empty.
         """
-        return self.__left
+        return self.__right
 
     def set_right(self, new_right):
         """
-
+        Add a right child at the current node
         :param new_right: set a new right child
-        :return:
+        :return: None
         """
+
+        print("type : ", new_right.__class__)
+        assert isinstance(new_right, BinaryTree) or None
         if self.__right is not None:
             self.__right.set_father(None)
         self.__right = new_right
@@ -98,7 +105,7 @@ class BinaryTree:
         """
         depth = 1
         depth += 0 if self.__left is None else self.__left.get_depth()
-        depth += 0 if self.__right is None else self.right.get_depth()
+        depth += 0 if self.__right is None else self.__right.get_depth()
         return depth
 
     def __len__(self):
@@ -106,7 +113,7 @@ class BinaryTree:
         Returns the number of children. Can be 0, 1 or 2.
         :return: integer that is the number of children of the current node
         """
-        return (0 if self.__left else 1) + (0 if self.__right else 1)
+        return (0 if not self.__left else 1) + (0 if not self.__right else 1)
 
     def __str__(self):
         if self.is_leaf():
