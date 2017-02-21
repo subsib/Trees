@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-class BinaryTree:
+class BinaryTree(object):
     """
     Builds a binary tree contening the given data
     """
@@ -61,8 +61,8 @@ class BinaryTree:
         :return: None
         """
 
-        print("type : ", new_right.__class__)
         assert isinstance(new_right, BinaryTree) or None
+
         if self.__right is not None:
             self.__right.set_father(None)
         self.__right = new_right
@@ -113,7 +113,7 @@ class BinaryTree:
         Returns the number of children. Can be 0, 1 or 2.
         :return: integer that is the number of children of the current node
         """
-        return (0 if not self.__left else 1) + (0 if not self.__right else 1)
+        return (0 if self.__left is None else 1) + (0 if self.__right is None else 1)
 
     def __str__(self):
         if self.is_leaf():
