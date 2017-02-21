@@ -14,7 +14,7 @@ ready to do some little exercises.
 
 class BinaryTree(object):
     """
-    Builds a binary tree contening the given data
+    Builds a binary tree contenting the given data
     """
     def __init__(self, data):
         self.__data = data
@@ -24,7 +24,7 @@ class BinaryTree(object):
 
     def get_value(self):
         """
-        Returs the value from the current node
+        Returns the value from the current node
         :return: the value from the current node
         """
         return self.__data
@@ -54,10 +54,10 @@ class BinaryTree(object):
         self.assert_binary_tree_or_none(new_left)
 
         if self.__left is not None:
-            self.__left.set_father(None)
+            self.__left.set_parent(None)
         self.__left = new_left
         if self.__left is not None:
-            self.__left.set_father(self)
+            self.__left.set_parent(self)
 
     def get_right(self):
         """
@@ -76,10 +76,10 @@ class BinaryTree(object):
         self.assert_binary_tree_or_none(new_right)
 
         if self.__right is not None:
-            self.__right.set_father(None)
+            self.__right.set_parent(None)
         self.__right = new_right
         if self.__right is not None:
-            self.__right.set_father(self)
+            self.__right.set_parent(self)
 
     def is_leaf(self):
         """
@@ -88,20 +88,20 @@ class BinaryTree(object):
         """
         return len(self) < 1
 
-    def get_father(self):
+    def get_parent(self):
         """
         Returns the father of the current node
         :return: the father of the current node
         """
         return self.__father
 
-    def set_father(self, new_father):
+    def set_parent(self, new_parent):
         """
         Set the father of the current node
-        :param new_father: the new node to be the father of the current node
+        :param new_parent: the new node to be the father of the current node
         :return: None
         """
-        self.__father = new_father
+        self.__father = new_parent
 
     def detach(self):
         """
@@ -138,5 +138,4 @@ class BinaryTree(object):
 
     @staticmethod
     def assert_binary_tree_or_none(new_tree):
-        if not (isinstance(new_tree, BinaryTree) or new_tree is None):
-            raise AttributeError("Child must be a BinaryTree or None")
+        assert (isinstance(new_tree, BinaryTree) or new_tree is None)

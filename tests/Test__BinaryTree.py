@@ -33,7 +33,7 @@ class Test__BinaryTree(unittest.TestCase):
         assert len(self.tree) == 1
 
     def test_add_right_attribute_error(self):
-        with self.assertRaises(AttributeError):
+        with self.assertRaises(AssertionError):
             self.tree.set_right(2)
 
     def test_add_left(self):
@@ -43,7 +43,7 @@ class Test__BinaryTree(unittest.TestCase):
         self.tree.set_left(BinaryTree("là"))
 
     def test_add_left_attribute_error(self):
-        with self.assertRaises(AttributeError):
+        with self.assertRaises(AssertionError):
             self.tree.set_left("machin")
 
     def test_display_tree(self):
