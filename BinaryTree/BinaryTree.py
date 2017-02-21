@@ -1,4 +1,15 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+__author__ = "Arabella Brayer"
+__date__ = "20 feb 2017"
+
+"""
+File : BinaryTree.py
+
+This class is a simple Binary Tree class, in the way to have always have one
+ready to do some little exercises.
+"""
 
 
 class BinaryTree(object):
@@ -39,7 +50,8 @@ class BinaryTree(object):
         :param new_left: set a new right child
         :return:
         """
-        assert isinstance(new_left, BinaryTree) or None
+
+        self.assert_binary_tree_or_none(new_left)
 
         if self.__left is not None:
             self.__left.set_father(None)
@@ -61,7 +73,7 @@ class BinaryTree(object):
         :return: None
         """
 
-        assert isinstance(new_right, BinaryTree) or None
+        self.assert_binary_tree_or_none(new_right)
 
         if self.__right is not None:
             self.__right.set_father(None)
@@ -110,7 +122,7 @@ class BinaryTree(object):
 
     def __len__(self):
         """
-        Returns the number of children. Can be 0, 1 or 2.
+        Returns the number of children. Can be 0 or 1.
         :return: integer that is the number of children of the current node
         """
         return (0 if self.__left is None else 1) + (0 if self.__right is None else 1)
@@ -118,7 +130,13 @@ class BinaryTree(object):
     def __str__(self):
         if self.is_leaf():
             return "BT(" + str(self.__data) + ")"
-        return "BT(" + str(self.__data) + ", " + str(self.__left) + str(self.__right) + ")"
+        return "BT({0}, {1} {2})".format(str(self.__data), str(self.__left),
+                                         str(self.__right))
 
     def __repr__(self):
         return str(self)
+
+    @staticmethod
+    def assert_binary_tree_or_none(new_tree):
+        if not (isinstance(new_tree, BinaryTree) or new_tree is None):
+            raise AttributeError("Child must be a BinaryTree or None")
