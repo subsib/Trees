@@ -16,9 +16,10 @@ class Test__BinaryTree(unittest.TestCase):
         """
         Checks the correctness of the intialization
         """
-        tree = BinaryTree("a")
-        tree = BinaryTree(1)
-        tree = BinaryTree([2, 3])
+
+        BinaryTree("a")
+        BinaryTree(1)
+        BinaryTree([2, 3])
 
     def test_init_tree_and_raises(self):
         """
@@ -47,9 +48,11 @@ class Test__BinaryTree(unittest.TestCase):
             self.tree.set_left("machin")
 
     def test_display_tree(self):
+        assert (str(self.tree) == "BT(1)")
         self.tree.set_left(BinaryTree(2))
+        assert (str(self.tree) == "BT(1, BT(2) )")
         self.tree.set_right(BinaryTree(3))
-        print(self.tree)
+        assert (str(self.tree) == "BT(1, BT(2) BT(3))")
 
 if __name__ == "__main__":
     unittest.main()

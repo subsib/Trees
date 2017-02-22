@@ -130,8 +130,11 @@ class BinaryTree(object):
     def __str__(self):
         if self.is_leaf():
             return "BT(" + str(self.__data) + ")"
-        return "BT({0}, {1} {2})".format(str(self.__data), str(self.__left),
-                                         str(self.__right))
+        return "BT({0}, {1} {2})".format(str(self.__data),
+                                         str(
+                                             self.__left) if self.__left is not None else "",
+                                         str(
+                                             self.__right) if self.__right is not None else "")
 
     def __repr__(self):
         return str(self)
